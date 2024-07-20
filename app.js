@@ -151,8 +151,7 @@ class App{
 				console.log( 'An error happened' );
 
 			}
-        );
-
+		);
 	}
     
     setupXR(){
@@ -234,10 +233,6 @@ class App{
         
         return controllers;
     }
-    
-    
-
-
     
     moveDolly(dt){
         if (this.proxy === undefined) return;
