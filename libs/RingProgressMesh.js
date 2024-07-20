@@ -39,16 +39,38 @@ float arc(vec2 pt, vec2 center, float radius, float percent){
   return result;
 }
 
-void main (void)
-{
+void main(void) {
   vec4 bgColor = vec4(0.0, 0.0, 0.0, 1.0);
-  vec4 arcColor = vec4(1.0);
-  vec2 center = vec2(0.5);
+  vec2 center = vec2(0.5); // Assuming this is the center of your arc/circle
+  float radius = 0.4; // Radius of the arc
+  float uProgress = ...; // Progress variable for the arc, assuming it's defined elsewhere
+
+  // Define purple and blue colors
+  vec4 purple = vec4(0.5, 0.0, 0.5, 1.0);
+  vec4 blue = vec4(0.0, 0.0, 1.0, 1.0);
+
+  // Calculate the distance from the fragment to the center
+  float dist = length(vUv - center);
+
+  // Determine if the fragment is within the arc radius
+  bool isWithinArc = (dist >= radius * (1.0 - uProgress)) && (dist <= radius);
+
+  // If the fragment is within the arc, calculate the gradient factor
+  // Here we use a simple linear progression based on the distance,
+  // but you might want to adjust this logic based on your specific needs
+  float gradientFactor = smoothstep(radius * (1.0 - uProgress), radius, dist);
+
+  // Interpolate between purple and blue based on the gradient factor
+  vec4 arcColor = mix(purple, blue, gradientFactor);
+
+  // Accumulate colors
   vec4 color = vec4(0.0);
   color += circle(vUv, center, 0.5) * bgColor;
-  color += arc(vUv, center, 0.4, uProgress) * arcColor;
-  gl_FragColor = color; 
-}`
+  color += arc(vUv, center, radius, uProgress) * arcColor;
+
+  gl_FragColor = color;
+}
+
 
 class RingProgressMesh extends Mesh{
     constructor( scale = 1 ){
