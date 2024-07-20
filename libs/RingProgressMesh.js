@@ -69,7 +69,7 @@ void main() {
   color += arc(vUv, center, radius, uProgress) * arcColor;
 
   gl_FragColor = color;
-}`
+}
 
 
 class RingProgressMesh extends Mesh{
