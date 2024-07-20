@@ -127,10 +127,8 @@ class App{
 					}
 				});
                        
-                //const door1 = college.getObjectByName("LobbyShop_Door__1_");
-                const door1 = { position: { x: 10, y: 20 } };
-                //const door2 = college.getObjectByName("LobbyShop_Door__2_");
-                const door2 = { position: { x: 30, y: 40 } };
+                const door1 = college.getObjectByName("LobbyShop_Door__1_");
+                const door2 = college.getObjectByName("LobbyShop_Door__2_");
                 const pos = door1.position.clone().sub(door2.position).multiplyScalar(0.5).add(door2.position);
                 const obj = new THREE.Object3D();
                 obj.name = "LobbyShop";
