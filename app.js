@@ -151,7 +151,13 @@ class App{
 				console.log( 'An error happened' );
 
 			}
-		);
+        );
+
+        this.dolly = new THREE.Object3D();
+        this.dolly.position.set(0, 0, 10);
+        this.dolly.rotation.y = Math.PI; // Set initial rotation to 180 degrees around Y-axis
+        this.dolly.add(this.camera);
+
 	}
     
     setupXR(){
@@ -233,11 +239,8 @@ class App{
         
         return controllers;
     }
-    this.dolly = new THREE.Object3D();
-this.dolly.position.set(0, 0, 10);
-this.dolly.rotation.y = Math.PI; // Set initial rotation to 180 degrees around Y-axis
-this.dolly.add(this.camera);
-
+    
+    
 
 
     
