@@ -39,8 +39,8 @@ float arc(vec2 pt, vec2 center, float radius, float percent){
   return result;
 }
 
-void main (void)
-vec4 bgColor = vec4(0.0, 0.0, 0.0, 1.0);
+void main() {
+  vec4 bgColor = vec4(0.0, 0.0, 0.0, 1.0);
   vec2 center = vec2(0.5); // Assuming this is the center of your arc/circle
   float radius = 0.4; // Radius of the arc
   float uProgress = ...; // Progress variable for the arc, assuming it's defined elsewhere
@@ -70,6 +70,7 @@ vec4 bgColor = vec4(0.0, 0.0, 0.0, 1.0);
 
   gl_FragColor = color;
 }`
+
 
 class RingProgressMesh extends Mesh{
     constructor( scale = 1 ){
