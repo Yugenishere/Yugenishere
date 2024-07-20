@@ -233,7 +233,6 @@ class App{
         
         return controllers;
     }
-    
     moveDolly(dt){
         if (this.proxy === undefined) return;
         
