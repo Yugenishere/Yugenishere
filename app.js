@@ -129,7 +129,7 @@ class App{
                        
                 const door1 = college.getObjectByName("LobbyShop_Door__1_");
                 const door2 = college.getObjectByName("LobbyShop_Door__2_");
-                const pos = new THREE.Vector3().copy(door1.position).sub(door2.position).multiplyScalar(0.5).add(door2.position);
+                const pos = new THREE.Vector3(.copy(door1.position).sub(door2.position).multiplyScalar(0.5).add(door2.position);
                 const obj = new THREE.Object3D();
                 obj.name = "LobbyShop";
                 obj.position.copy(pos);
